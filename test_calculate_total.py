@@ -1,14 +1,12 @@
 import pytest
-from your_solution_file import calculate_total  # замените your_solution_file на имя вашего файла
+from calculate_total import calculate_total
 
-# ---------- Тесты для calculate_total ----------
 def test_calculate_total_no_discounts_no_tax():
     prices = [100, 200, 300]
     assert calculate_total(prices) == 600.0
 
 def test_calculate_total_with_discounts():
     prices = [100, 200, 300]
-    # Скидка 10% и 5%
     assert calculate_total(prices, 10, 5) == pytest.approx(513.0)
 
 def test_calculate_total_with_tax():
@@ -23,7 +21,7 @@ def test_calculate_total_all_options():
 def test_calculate_total_round_to_none():
     prices = [100, 200, 300]
     result = calculate_total(prices, 10, tax=15, round_to=None)
-    # без округления: 600*0.9*1.15 = 621.0 (должно быть точно 621.0)
+    # без округления: 600*0.9*1.15 = 621.0
     assert result == 621.0
 
 def test_calculate_total_empty_prices():
