@@ -7,5 +7,5 @@ def calculate_total(prices, *discounts , **options):
     for j in discounts:
         sum_prices=sum_prices*(100-j)/100
     sum_prices = sum_prices*(options.get('tax', 0)+100)/100
-    sum_prices = round(sum_prices, options.get('round_1', 0))
+    sum_prices = float(round(sum_prices, options.get('round_1', 0)))
     return sum_prices
